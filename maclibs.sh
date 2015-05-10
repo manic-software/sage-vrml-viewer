@@ -14,10 +14,10 @@ do
     else 
 	cp $oldlibdir/`basename $lib` $copyto/
     fi
+    chmod +w $copyto/`basename $lib`
     libs="$libs `basename $lib`"
     install_name_tool -id `basename $lib` $copyto/`basename $lib`
     echo ".\c"
-    echo relocating `basename $lib`
 done
 dir=`pwd`
 cd $copyto
@@ -33,6 +33,7 @@ do
 		cp $oldlibdir/`basename $lib` .
 	    fi
 	fi
+	chmod +w `basename $lib`
 	install_name_tool -id `basename $lib` `basename $lib`
     echo ".\c"
     done
