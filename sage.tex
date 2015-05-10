@@ -1,0 +1,127 @@
+\documentclass[12pt,a4]{article}
+\usepackage{chemarr}
+\usepackage{color}
+\usepackage{url}
+\usepackage[pdftex]{hyperref}
+
+\usepackage[pdftex]{graphicx}
+
+\begin{document}
+
+\graphicspath{{figs/}}
+
+\DeclareGraphicsExtensions{.pdf, .jpg, .png}
+
+\title{\centerline{{\underline{\texttt{SAGE} Documentation}}}}
+\author{Matt Robinson}
+\date{15th March 2011}
+\maketitle
+
+\section{Installation}
+
+See README.
+
+\section{Introduction}
+
+This document is a work in progress, but I thought something was better than nothing.
+
+SAGE (See A Geant Event) is an event viewer for Geant4
+It reads \texttt{wrl} (VRML) files containing tracks and detector components and displays them.
+The display is based on OpenGL and performs better on decent graphics cards.  Performance suffers on slow graphics cards and over X-Window forwarding, but it should still work well enough.
+
+\begin{figure}[htb]
+\includegraphics[width=0.95\textwidth]{gui.pdf}
+\end{figure}
+
+\section{Loading VRML (wrl) Files}
+
+To open in the current window, choose 'Open' from the 'File' menu.  To open in a new window, choose 'New' from that menu.
+Double-click to open should work on Mac or Windows, or after proper set-up on Linux.
+
+\section{Navigation}
+
+Navigation is achieved by holding down the left mouse button over the display and dragging.
+
+There are 3 primary navigation modes: 'Move', 'Pan', and 'Zoom/Twist'.
+These are accessible from the buttons at the bottom of the window, or from the 'Navigation' menu.
+
+Move: shift the detector left/right or up/down;
+Pan: rotate the detector about the vertical or horizontal axis;
+Zoom/Twist: shift the detector forward/back or rotate about the depth axis.
+
+'Origin' is a special mode which allows the user to change the centre of rotation.  It is useful to move this to the centre of the part of the event/geometry which is of interest.  Then this will stay in the centre of the view when using 'Pan' navigation mode.
+
+Point the mouse at something and it will be identified by the display of some text in the bottom right of the display.
+
+The keyboard arrow keys can be used to navigate if you prefer.
+
+Alternatively, there are keyboard shortcuts which work without switching modes
+
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+Key & Action \\
+\hline
+A & Move left \\
+D & Move right \\
+W & Move up \\
+S & Move down \\
+\hline
+E & Pan left \\
+T & Pan right \\
+R & Pan up \\
+F & Pan down \\
+\hline
+G & Twist left \\
+J & Twist right \\
+Y & Zoom in \\
+H & Zoom out \\
+\hline
+U & Shrink origin sphere \\
+O & Enlarge origin sphere \\
+I & Move origin out \\
+K & Move origin in \\
+\hline
+\end{tabular}
+\vspace{0.5cm}
+
+If you find that the keyboard shortcuts are not working, it's probably because the `focus' is not on the 3d display.  Hit `Tab' to shift the focus, or click on the 3d display.
+
+\section{Recording what you see}
+
+The 'Record' menu allow you to record either a snapshot of the display, or a short video clip (up to 25 seconds).  Video clips are limited by RAM availability.
+
+After recording a video clip, you will have a whole bunch of png files for each frame.  A script is generated for converting this to a Windows friendly avi or a modern mp4.  mencoder is needed for the conversion to avi or to mp4.  mp4 conversion also required MP4Box from gpac.
+
+\section{Viewing Modes}
+
+There are several viewing modes on the 'View' menu.
+There is a full screen mode, Cmd/Ctrl+F to get in or out of this mode.
+
+You can choose to show the detector as a wire-frame, in full, or both or neither.  The default is to show the detector wire-frame.
+
+\section{Detector Geometry}
+
+From the ``Detector'' list, you can turn bits of the detector on and off.  This may be useful if you want to get a clear view of components which are to some degree obscured.
+
+\section{Configuring Geant4}
+
+Geant4 should be built with vrml support.  This is normally how it's built, be some may find it necessary to recompile.
+
+Set the environment variable \texttt{G4VRMLFILE\_VIEWER} to \texttt{sage} and set \texttt{G4VIS\_USE\_VRML} to \texttt{1}.
+
+In your geant4 macro file include the following: \\
+\texttt{/vis/scene/create} \\
+\texttt{/vis/open VRML2FILE} \\
+\texttt{/vis/scene/add/trajectories} \\
+\texttt{/vis/scene/endOfEventAction accumulate} \\
+and \\
+\texttt{/vis/viewer/flush} \\
+or \\
+\texttt{/run/beamOn 1} \\
+
+\vspace{2cm}
+
+\texttt{m.robinson@sheffield.ac.uk}
+
+\end{document}
