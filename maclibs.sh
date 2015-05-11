@@ -21,6 +21,9 @@ do
 done
 dir=`pwd`
 cd $copyto
+while [ ${#libs} -gt 0 ]
+do
+newlibs=""
 for item in $libs
 do
     for lib in `otool -L $item | grep $oldlibdir | cut -d ' ' -f 1`
@@ -32,11 +35,15 @@ do
 	    else 
 		cp $oldlibdir/`basename $lib` .
 	    fi
+	    newlibs="$newlibs `basename $lib`"
 	fi
 	chmod +w `basename $lib`
 	install_name_tool -id `basename $lib` `basename $lib`
     echo ".\c"
     done
 done
+libs=$newlibs
+done
+
 cd $dir
 echo
