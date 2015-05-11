@@ -27,6 +27,7 @@ Section "MingW Runtime" mingw
 	SetOverwrite ifnewer
         File "C:\mingw32\bin\libgcc_s_dw2-1.dll"
         File "C:\mingw32\bin\libstdc++-6.dll"
+        File "C:\mingw32\bin\libwinpthread-1.dll"
 SectionEnd
 
 Section "Qt Binaries" qt
