@@ -25,20 +25,20 @@ SectionEnd
 Section "MingW Runtime" mingw
         SetOutPath "$SYSDIR"
 	SetOverwrite ifnewer
-        File "C:\Qt\2010.05\mingw\bin\mingwm10.dll"
-        File "C:\Qt\2010.05\mingw\bin\libgcc_s_dw2-1.dll"
+        File "C:\mingw32\bin\libgcc_s_dw2-1.dll"
+        File "C:\mingw32\bin\libstdc++-6.dll"
 SectionEnd
 
 Section "Qt Binaries" qt
         SetOutPath "$SYSDIR"
 	SetOverwrite ifnewer
-        File "C:\Qt\2010.05\qt\bin\QtCore4.dll"
-        File "C:\Qt\2010.05\qt\bin\QtGui4.dll"
-        File "C:\Qt\2010.05\qt\bin\QtOpenGL4.dll"
-        File "C:\Qt\2010.05\qt\bin\Qt3Support4.dll"
-        File "C:\Qt\2010.05\qt\bin\QtNetwork4.dll"
-        File "C:\Qt\2010.05\qt\bin\QtSql4.dll"
-        File "C:\Qt\2010.05\qt\bin\QtXml4.dll"
+        File "C:\Qt\4.8.6\bin\QtCore4.dll"
+        File "C:\Qt\4.8.6\bin\QtGui4.dll"
+        File "C:\Qt\4.8.6\bin\QtOpenGL4.dll"
+        File "C:\Qt\4.8.6\bin\Qt3Support4.dll"
+        File "C:\Qt\4.8.6\bin\QtNetwork4.dll"
+        File "C:\Qt\4.8.6\bin\QtSql4.dll"
+        File "C:\Qt\4.8.6\bin\QtXml4.dll"
 SectionEnd
 
 Section "Start Menu Shortcuts" startmenu
