@@ -1046,7 +1046,7 @@ void Gui::
 cb_open(void)
 {
   //ask for filename
-  QString filename=QFileDialog::getOpenFileName(QString::null, "Event Files (*.json)", this, "Open Event File");
+  QString filename=QFileDialog::getOpenFileName(QString::null, "Event Files (*.wrl)", this, "Open Event File");
   //if filename given, load file
   if (filename!=QString::null)  loadfile(filename);
 }
