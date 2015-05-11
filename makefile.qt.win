@@ -1,5 +1,5 @@
-DEFINES       = -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN
-QT_CXXFLAGS      = -O2 -frtti -fexceptions -mthreads -Wall $(DEFINES)
-QT_INCPATH       = -I"C:\Qt\2010.05\qt\include\Qt3Support" -I"C:\Qt\2010.05\qt\include\QtOpenGL" -I"C:\Qt\2010.05\qt\include\QtGui" -I"C:\Qt\2010.05\qt\include" -I"C:\Qt\2010.05\qt\include\ActiveQt" -I"C:\Qt\2010.05\qt\include\QtCore" -I"C:\Qt\2010.05\qt\mkspecs\default"
-QT_LFLAGS        =        -enable-stdcall-fixup -Wl,-enable-auto-import -Wl,-enable-runtime-pseudo-reloc -Wl,-s -mthreads -Wl -Wl,-subsystem,windows
-QT_LIBS        =      -L"c:\Qt\2010.05\qt\lib" -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -lqtmain -lQtOpenGL4 -lQtGui4 -lQtCore4 -lQt3Support4
+DEFINES       = -DUNICODE -DQT_DLL -DQT_QT3SUPPORT_LIB -DQT3_SUPPORT -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT
+QT_CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -frtti -fexceptions -mthreads -Wall -Wextra $(DEFINES)
+QT_INCPATH       = -I"c:\Qt\4.8.6\include\QtCore" -I"c:\Qt\4.8.6\include\QtGui" -I"c:\Qt\4.8.6\include\QtOpenGL" -I"c:\Qt\4.8.6\include\Qt3Support" -I"c:\Qt\4.8.6\include" -I"c:\Qt\4.8.6\include\ActiveQt" -I"." -I"." -I"." -I"c:\Qt\4.8.6\mkspecs\default"
+QT_LFLAGS        =        -mthreads -Wl,-subsystem,windows
+QT_LIBS        =      -L"c:\Qt\4.8.6\lib" -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -lqtmaind -lQt3Support4 -lQtOpenGL4 -lQtGui4 -lQtCore4
