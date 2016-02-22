@@ -1,5 +1,6 @@
 # sage-vrml-viewer
-See A Geant Event is a vrml2 file viewer optimised for use with the geant4 simulation toolkit (although it should work with generic vrml2 files)
+See A Geant Event is a vrml2 file viewer optimised for use with the geant4 simulation toolkit.
+It may also be useful for simple vrml files (containing only indexedfaceset and indexedlineset objects) produced by other means.
 
 I developed this software a few years back.  Finally getting round to sharing it.
 Probably most useful those using geant4, but may find a wider home (perhaps with some revisions)
